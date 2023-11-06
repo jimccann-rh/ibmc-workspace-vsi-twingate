@@ -17,7 +17,7 @@ variable "network_speed" {
 variable "os_reference_code" {
   description = "The operating system reference code for the virtual server instance."
   type        = string
-  default     = "REDHAT_8_64"
+  default     = "REDHAT_9_64"
 }
 
 variable "tg_api_key" {
