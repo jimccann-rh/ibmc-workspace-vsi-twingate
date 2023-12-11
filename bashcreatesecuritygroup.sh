@@ -2,13 +2,13 @@
 
 SGNAME="tg"
 
-TGID=$(ibmcloud sl securitygroup list --output json |jq '.[] | select(.name == $SGNAME ) | .id')
+TGID=$(ibmcloud sl securitygroup list --output json |jq '.[] | select(.name == "'"$SGNAME"'" ) | .id')
 
 # Check if the value is blank
 if [[ -z "$TGID" ]]; then
   echo "Value is null, creating security group."
   ibmcloud sl securitygroup create --name $SGNAME
-  TGID=$(ibmcloud sl securitygroup list --output json |jq '.[] | select(.name == $SGNAME) | .id')
+  TGID=$(ibmcloud sl securitygroup list --output json |jq '.[] | select(.name == "'"$SGNAME"'" | .id')
 else
   echo "Value is not null, proceeding..."
   # Put your script logic here that requires the value
